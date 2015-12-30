@@ -1,18 +1,53 @@
-" Analytics Team Vim Config
+"Start config vundle for install aditional plugins 
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 
-""  Powerline
-"source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-"source /usr/share/vim/vimfiles/plugin/powerline.vim
+Plugin 'ivanov/vim-ipython'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'gcmt/breeze.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'gerw/vim-latex-suite'
+Plugin 'ervandew/supertab'
+Plugin 'jcfaria/Vim-R-plugin'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'mileszs/ack.vim'
+Plugin 'jalvesaq/VimCom'
+Plugin 'jalvesaq/R-Vim-runtime'
+" Color Themes
+Bundle 'flazz/vim-colorschemes'
+
+call vundle#end()            " required
+filetype plugin indent on
+"End config vundle 
+
+"Syntax color
 syntax enable
+
+"Set solarized dark color theme
+colorscheme solarized
 set background=dark
+
+"Show the line and the position of the line in a bottom"
 set laststatus=2
+"Disable compatibility with vi
 set nocompatible
-"""filetype off
-"""set nocompatible
-"""syntax enable
-filetype plugin on
-filetype indent on
 
 let mapleader = "."
 let maplocalleader = ","
@@ -25,40 +60,19 @@ map  <left> <nop>
 map  <right> <nop>
 "imap <right> <nop>
 
+" CTRL-X and SHIFT-Del are Cut
+vnoremap <C-X> "+x
+vnoremap <S-Del> "+x
 
-"" Bundles
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+" CTRL-C and CTRL-Insert are Copy
+vnoremap <C-C> "+y
+vnoremap <C-Insert> "+y
 
-Bundle 'ivanov/vim-ipython'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-surround'
-Bundle 'gcmt/breeze.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'bling/vim-airline'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'tpope/vim-fugitive'
-"Bundle 'gerw/vim-latex-suite'
-Bundle 'ervandew/supertab'
-Bundle 'jcfaria/Vim-R-plugin'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'mileszs/ack.vim'
-Bundle 'jalvesaq/VimCom'
-Bundle 'jalvesaq/R-Vim-runtime'
+" CTRL-V and SHIFT-Insert are Paste
+map <C-V> "+gP
+map <S-Insert> "+gP"
 
-"""map <Leader>rf \rf
-map <leader> \
-
-" Color Themes
-Bundle 'flazz/vim-colorschemes'
-colorscheme solarized
-""""""""
+"No se que hacen estas líneas
 if has('autocmd')
   filetype plugin indent on
 endif
@@ -247,19 +261,6 @@ let g:Tex_ViewRule_ps = 'open -a Skim'
 let g:Tex_ViewRule_pdf = 'open -a /Applications/Skim.app'
 let g:Tex_ViewRule_dvi = 'open -a /Applications/texniscope.app'
 
-" CTRL-X and SHIFT-Del are Cut
-vnoremap <C-X> "+x
-vnoremap <S-Del> "+x
-
-" CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
-
-" CTRL-V and SHIFT-Insert are Paste
-map <C-V>   	"+gP
-map <S-Insert>  	"+gP
-
-
 "" MIs config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -271,3 +272,4 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_checkers = ['pylint']
+
