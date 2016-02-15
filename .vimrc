@@ -30,6 +30,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'mileszs/ack.vim'
 Plugin 'jalvesaq/VimCom'
 Plugin 'jalvesaq/R-Vim-runtime'
+Plugin 'vim-airline/vim-airline-themes'  
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
 
